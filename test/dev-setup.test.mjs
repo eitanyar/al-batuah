@@ -26,3 +26,17 @@ test('the contact form never claims an email was sent before an email service ex
   assert.doesNotMatch(script, /setTimeout\(\(\) => \{\s*formSuccess\.classList\.add\('show'\)/);
   assert.match(script, /formNotice\.classList\.add\('show'\)/);
 });
+
+test('the temporary review site asks search engines not to index it', () => {
+  const html = read('index.html');
+
+  assert.match(html, /<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"\s*\/>/);
+  assert.equal(existsSync('robots.txt'), false, 'do not block crawlers from reading the noindex tag');
+});
+
+test('the review build is available to publish only the site files', () => {
+  const packageJson = JSON.parse(read('package.json'));
+
+  assert.equal(typeof packageJson.scripts?.['build:review'], 'string');
+  assert.equal(existsSync('scripts/build-review-site.mjs'), true);
+});
