@@ -1,0 +1,14 @@
+{
+  "name": "al-batuah-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local development workspace for the Al Batuah static marketing website.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "vite": "^7.1.7"
+  }
+}
