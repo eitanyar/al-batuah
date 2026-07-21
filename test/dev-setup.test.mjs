@@ -40,3 +40,14 @@ test('the review build is available to publish only the site files', () => {
   assert.equal(typeof packageJson.scripts?.['build:review'], 'string');
   assert.equal(existsSync('scripts/build-review-site.mjs'), true);
 });
+
+test('Version 2 uses the owner-approved credibility facts and Yossi portrait', () => {
+  const html = read('index.html');
+
+  assert.match(html, /הוקמה בשנת/);
+  assert.match(html, /data-target="10000"/);
+  assert.match(html, /data-target="500"/);
+  assert.match(html, /data-target="7"/);
+  assert.match(html, /images\/team\/yossi-shapir\.jpeg/);
+  assert.equal(existsSync('images/team/yossi-shapir.jpeg'), true);
+});
