@@ -775,6 +775,37 @@ img {
 }
 
 /* ===========================
+   CLIENTS
+=========================== */
+.clients-section {
+  padding: 96px 0;
+  background: var(--white);
+}
+
+.client-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.client-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dark);
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ===========================
    PROJECTS
 =========================== */
 .projects-section {
