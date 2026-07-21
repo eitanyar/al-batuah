@@ -68,5 +68,7 @@ test('Version 2 uses the owner-approved credibility facts and Yossi portrait', (
   assert.match(html, /גופים ממשלתיים/);
   assert.match(html, /id="clients"/);
   assert.match(html, /משרד הביטחון/);
-  assert.doesNotMatch(html, /ניסיון של 23 שנה/);
+  assert.match(html, /name="privacyConsent"/);
+  assert.match(html, /אני מסכים\/ה ל<a href="#privacy">מדיניות הפרטיות/);
+  assert.match(html, /type="checkbox"[^>]*required/);
 });
