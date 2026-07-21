@@ -71,4 +71,11 @@ test('Version 2 uses the owner-approved credibility facts and Yossi portrait', (
   assert.match(html, /name="privacyConsent"/);
   assert.match(html, /אני מסכים\/ה ל<a href="#privacy">מדיניות הפרטיות/);
   assert.match(html, /type="checkbox"[^>]*required/);
+  assert.match(html, /id="accessibilityToggle"/);
+  assert.match(html, /id="accessibilityPanel"/);
+  assert.match(html, /data-accessibility="increase-font"/);
+  assert.match(html, /מסירת הפרטים בטופס היא מרצונך החופשי/);
+  assert.match(html, /לצורך חזרה לפנייתך ומתן השירות המבוקש בלבד/);
+  assert.match(html, /Resend/);
+  assert.match(html, /איננו משתמשים בעוגיות שיווקיות או בכלי מעקב פרסומיים/);
 });

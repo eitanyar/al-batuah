@@ -1491,6 +1491,53 @@ details[open] .privacy-arrow {
 }
 
 /* ===========================
+   ACCESSIBILITY TOOLS
+=========================== */
+.accessibility-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1001;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 50px;
+  background: var(--dark);
+  color: var(--white);
+  font: 700 0.9rem var(--font);
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+}
+
+.accessibility-panel {
+  position: fixed;
+  right: 24px;
+  bottom: 82px;
+  z-index: 1002;
+  width: min(320px, calc(100vw - 32px));
+  padding: 18px;
+  background: var(--white);
+  color: var(--dark);
+  border: 2px solid var(--dark);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.accessibility-panel[hidden] { display: none; }
+.accessibility-panel__header { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.accessibility-close { border:0; background:none; color:var(--dark); font-size:1.6rem; cursor:pointer; }
+.accessibility-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.accessibility-actions button { padding:10px; border:1px solid var(--dark); background:var(--white); color:var(--dark); border-radius:var(--radius); font:600 .84rem var(--font); cursor:pointer; }
+.accessibility-actions button:hover, .accessibility-actions button:focus-visible { background:var(--primary); outline:3px solid rgba(245,166,35,.4); }
+.accessibility-panel p { margin-top:14px; font-size:.75rem; line-height:1.5; color:var(--text-light); }
+.a11y-high-contrast { --dark:#000; --dark-2:#000; --dark-3:#111; --text:#000; --text-light:#111; --primary:#ffdf00; --bg-light:#fff; }
+.a11y-high-contrast .btn-primary { color:#000; }
+.a11y-underline-links a { text-decoration:underline !important; text-underline-offset:3px; }
+.a11y-readable-font, .a11y-readable-font * { font-family:Arial, sans-serif !important; }
+.a11y-reduce-motion *, .a11y-reduce-motion *::before, .a11y-reduce-motion *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+
+/* ===========================
    BACK TO TOP
 =========================== */
 .back-to-top {

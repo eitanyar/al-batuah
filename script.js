@@ -134,6 +134,38 @@ if (contactForm && formNotice) {
 }
 
 // ===========================
+// ACCESSIBILITY TOOLS
+// ===========================
+const accessibilityToggle = document.getElementById('accessibilityToggle');
+const accessibilityPanel = document.getElementById('accessibilityPanel');
+const accessibilityClose = document.querySelector('.accessibility-close');
+const accessibilityClasses = ['a11y-high-contrast', 'a11y-underline-links', 'a11y-readable-font', 'a11y-reduce-motion'];
+let accessibilityFontSize = 100;
+
+function setAccessibilityPanel(open) {
+  accessibilityPanel.hidden = !open;
+  accessibilityToggle.setAttribute('aria-expanded', String(open));
+  if (open) accessibilityPanel.querySelector('button').focus();
+}
+
+function resetAccessibility() {
+  document.body.classList.remove(...accessibilityClasses);
+  accessibilityFontSize = 100;
+  document.documentElement.style.fontSize = '';
+}
+
+accessibilityToggle.addEventListener('click', () => setAccessibilityPanel(accessibilityPanel.hidden));
+accessibilityClose.addEventListener('click', () => setAccessibilityPanel(false));
+document.querySelectorAll('[data-accessibility]').forEach(button => button.addEventListener('click', () => {
+  const action = button.dataset.accessibility;
+  if (action === 'increase-font' || action === 'decrease-font') {
+    accessibilityFontSize = Math.min(125, Math.max(85, accessibilityFontSize + (action === 'increase-font' ? 10 : -10)));
+    document.documentElement.style.fontSize = `${accessibilityFontSize}%`;
+  } else if (action === 'reset') resetAccessibility();
+  else document.body.classList.toggle(`a11y-${action}`);
+}));
+
+// ===========================
 // BACK TO TOP
 // ===========================
 const backToTop = document.getElementById('backToTop');
