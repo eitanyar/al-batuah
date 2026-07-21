@@ -63,5 +63,10 @@ test('Version 2 uses the owner-approved credibility facts and Yossi portrait', (
   assert.doesNotMatch(read('style.css'), /hero-bg\.webp/);
   assert.match(read('style.css'), /height: 230px/);
   assert.match(read('style.css'), /width: 184px/);
-  assert.match(read('style.css'), /\.team-avatar img\s*\{[^}]*border-radius: var\(--radius\)/s);
+  assert.match(html, /data-tab="public"/);
+  assert.match(html, /מבני ציבור/);
+  assert.match(html, /גופים ממשלתיים/);
+  assert.match(html, /id="clients"/);
+  assert.match(html, /משרד הביטחון/);
+  assert.doesNotMatch(html, /ניסיון של 23 שנה/);
 });
