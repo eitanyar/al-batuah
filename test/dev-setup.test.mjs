@@ -17,14 +17,15 @@ test('the site exposes local development, preview, and test commands', () => {
   assert.equal(existsSync('images/logo-final.png'), true);
 });
 
-test('the contact form never claims an email was sent before an email service exists', () => {
+test('the contact form only claims success after the email service confirms delivery', () => {
   const html = read('index.html');
   const script = read('script.js');
 
   assert.doesNotMatch(html, /הודעתך נשלחה בהצלחה/);
   assert.match(html, /id="formNotice"/);
-  assert.doesNotMatch(script, /setTimeout\(\(\) => \{\s*formSuccess\.classList\.add\('show'\)/);
-  assert.match(script, /formNotice\.classList\.add\('show'\)/);
+  assert.match(script, /fetch\('\/api\/contact'/);
+  assert.match(script, /if \(response\.ok\) \{\s*setNotice\('success'/);
+  assert.equal(existsSync('functions/api/contact.js'), true);
 });
 
 test('the temporary review site asks search engines not to index it', () => {

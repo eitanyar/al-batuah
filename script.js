@@ -125,11 +125,54 @@ tabBtns.forEach(btn => {
 // ===========================
 const contactForm = document.getElementById('contactForm');
 const formNotice = document.getElementById('formNotice');
+const contactSubmit = document.getElementById('contactSubmit');
 
-if (contactForm && formNotice) {
-  contactForm.addEventListener('submit', (e) => {
+if (contactForm && formNotice && contactSubmit) {
+  const submitLabel = contactSubmit.innerHTML;
+
+  function setNotice(kind, text) {
+    formNotice.className = 'form-notice show ' + kind;
+    formNotice.innerHTML = `<i class="fas fa-${kind === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${text}`;
+  }
+
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    formNotice.classList.add('show');
+
+    const formData = new FormData(contactForm);
+    const payload = {
+      name: formData.get('name') || '',
+      email: formData.get('email') || '',
+      phone: formData.get('phone') || '',
+      subject: formData.get('subject') || '',
+      message: formData.get('message') || '',
+      privacyConsent: formData.get('privacyConsent') === 'on',
+      website: formData.get('website') || '',
+    };
+
+    contactSubmit.disabled = true;
+    contactSubmit.innerHTML = 'שולח...';
+    formNotice.className = 'form-notice';
+    formNotice.innerHTML = '';
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setNotice('success', 'הפנייה נשלחה בהצלחה! ניצור איתך קשר בהקדם.');
+        contactForm.reset();
+      } else {
+        setNotice('error', 'אירעה שגיאה בשליחת הטופס. אפשר לפנות אלינו בטלפון או בדוא״ל.');
+      }
+    } catch {
+      setNotice('error', 'אירעה שגיאה בשליחת הטופס. אפשר לפנות אלינו בטלפון או בדוא״ל.');
+    } finally {
+      contactSubmit.disabled = false;
+      contactSubmit.innerHTML = submitLabel;
+    }
   });
 }
 

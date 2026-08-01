@@ -7,9 +7,11 @@
     "dev": "vite --host 0.0.0.0",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test test/*.test.mjs",
-    "build:review": "node scripts/build-review-site.mjs"
+    "build:review": "node scripts/build-review-site.mjs",
+    "pages:dev": "wrangler pages dev . --compatibility-date=2026-08-01"
   },
   "devDependencies": {
-    "vite": "^7.1.7"
+    "vite": "^7.1.7",
+    "wrangler": "^4.118.0"
   }
 }

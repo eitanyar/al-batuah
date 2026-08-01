@@ -1260,6 +1260,15 @@ img {
   text-underline-offset: 2px;
 }
 
+.honeypot-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .form-notice {
   display: none;
   margin-top: 16px;
@@ -1278,6 +1287,18 @@ img {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.form-notice.success {
+  background: #e3f7e8;
+  color: #1e5b2f;
+  border-color: #3fa85c;
+}
+
+.form-notice.error {
+  background: #fdeaea;
+  color: #7a1f1f;
+  border-color: #d9534f;
 }
 
 /* ===========================
