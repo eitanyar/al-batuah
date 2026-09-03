@@ -51,7 +51,9 @@ test('Version 2 uses the owner-approved credibility facts and Yossi portrait', (
   assert.match(html, /data-target="7"/);
   assert.match(html, /images\/team\/yossi-shapir\.webp/);
   assert.match(html, /images\/team\/revital-messika\.webp/);
-  assert.match(html, /מובילים בהנדסת בטיחות<br \/>מאז 2002/);
+  assert.match(html, /מצוינות ללא פשרות מאז 2002/);
+  assert.match(html, /ביצוע סימולציות ממוחשבות CFD/);
+  assert.match(html, /ניסוי שריפה מבוקר/);
   assert.match(html, /id="gallery"/);
   assert.match(html, /images\/gallery\/team1\.jpg/);
   assert.match(html, /images\/gallery\/team2\.jpg/);
@@ -64,9 +66,9 @@ test('Version 2 uses the owner-approved credibility facts and Yossi portrait', (
   assert.doesNotMatch(read('style.css'), /hero-bg\.webp/);
   assert.match(read('style.css'), /height: 230px/);
   assert.match(read('style.css'), /width: 184px/);
-  assert.match(html, /data-tab="public"/);
-  assert.match(html, /מבני ציבור/);
-  assert.match(html, /גופים ממשלתיים/);
+  assert.match(html, /data-tab="infra"/);
+  assert.match(html, /תשתיות ותחבורה/);
+  assert.match(html, /גופים ממשלתיים וציבוריים/);
   assert.match(html, /id="clients"/);
   assert.match(html, /משרד הביטחון/);
   assert.match(html, /name="privacyConsent"/);
