@@ -4,3 +4,17 @@ dist/
 .DS_Store
 *.Zone.Identifier
 *:Zone.Identifier
+
+# Windows metadata (Zone.Identifier, Thumbs.db, etc.)
+Zone.Identifier
+Thumbs.db
+desktop.ini
+
+# Local/Personal files and handoff docs (keep on disk, ignore in Git)
+.~lock.*
+*.docx
+handoff/
+revital.jpg
+yossi.jpeg
+albatuah-images/
+.claude/
