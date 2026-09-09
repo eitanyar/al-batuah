@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preload" as="image" href="images/hero/final-desktop-al-batuah.png" media="(min-width: 769px)" />
+  <link rel="preload" as="image" href="images/hero/final-mobile-al-batuah.png" media="(max-width: 768px)" />
 </head>
 <body>
 
@@ -57,6 +59,10 @@
 
   <!-- HERO SECTION -->
   <section class="hero" id="home">
+    <picture class="hero-media" aria-hidden="true">
+      <source media="(max-width: 768px)" srcset="images/hero/final-mobile-al-batuah.png" />
+      <img src="images/hero/final-desktop-al-batuah.png" width="640" height="360" alt="" loading="eager" fetchpriority="high" decoding="async" />
+    </picture>
     <div class="hero-overlay"></div>
     <div class="hero-content container">
       <p class="hero-label">בטיחות אש · נגישות נכים · בטיחות בעבודה</p>
@@ -76,9 +82,9 @@
   <section class="stats-section">
     <div class="stats-left">
       <p class="stats-label">הנדסת בטיחות אש וגהות</p>
-      <h2 class="stats-title">מקצועיות שנבנתה<br />מאז שנת 2002</h2>
+      <h2 class="stats-title">כתובת מקצועית אחת למגוון התמחויות משנת 2002</h2>
       <p class="stats-desc">ליווי פרויקטים גדולים ומורכבים בהנדסת בטיחות אש, בטיחות תעסוקתית ונגישות — מהתכנון הראשוני ועד האכלוס.</p>
-      <a href="#about" class="btn btn-dark">עבוד איתנו</a>
+      <a href="#contact" class="btn btn-dark">לקבלת הצעת מחיר מותאמת ושיחה אישית >></a>
     </div>
     <div class="stats-right">
       <div class="stat-item">
@@ -94,7 +100,7 @@
         <p class="stat-label">לקוחות מרוצים</p>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="7">0</span>
+        <span class="stat-num" data-target="10">0</span>
         <p class="stat-label">תחומי התמחות</p>
       </div>
     </div>
@@ -285,18 +291,15 @@
     </div>
   </section>
 
-  <!-- GALLERY SECTION -->
-  <section class="gallery-section" id="gallery">
+  <!-- EXPERT SHOWCASE SECTION -->
+  <section class="expert-showcase-section">
     <div class="container">
-      <div class="section-header">
-        <p class="section-label">מאחורי הקלעים</p>
-        <h2 class="section-title">האנשים שמאחורי הבטיחות</h2>
-        <p class="section-desc">רגעים מהצוות ומהעשייה המקצועית שלנו</p>
+      <div class="section-header expert-showcase-header">
+        <h2 class="section-title">צוות המומחים שלנו</h2>
       </div>
       <div class="gallery-grid">
         <figure class="gallery-item gallery-item--wide">
-          <img src="images/gallery/tunnel-fire-test.jpeg" alt="ניסוי שריפה מבוקר במנהרה" loading="lazy" />
-          <figcaption>ניסוי שריפה מבוקר בפרויקט תשתית</figcaption>
+          <img src="images/gallery/team-group-owner.jpg" alt="צוות על בטוח ביום גיבוש" loading="lazy" />
         </figure>
         <figure class="gallery-item gallery-item--tall">
           <img src="images/gallery/team1.jpg" alt="צוות על בטוח ביום גיבוש" loading="lazy" />
@@ -306,6 +309,16 @@
           <img src="images/gallery/team2.jpg" alt="מפגש צוות על בטוח" loading="lazy" />
           <figcaption>מחזקים קשרים וממשיכים קדימה יחד</figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="under-construction-gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header under-construction-gallery-header">
+        <h2 class="section-title">גלריה</h2>
+        <p class="under-construction-gallery-status">Under construction</p>
       </div>
     </div>
   </section>
@@ -496,43 +509,12 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section class="about-section" id="about">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">מי אנחנו</p>
-        <h2 class="section-title">אודות על בטוח</h2>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <p class="about-lead">בשנים האחרונות הפכה חברת <strong>על בטוח הנדסת בטיחות אש וגהות</strong> לאחת החברות המובילות בישראל בתחומה.</p>
-          <p>מאז הקמתה בשנת 2002 החברה מלווה פרויקטים גדולים ומורכבים בהנדסת בטיחות אש, בטיחות תעסוקתית ונגישות לאנשים עם מוגבלות בתחומי תחבורה, בריאות, תשתיות, מגורים, מסחר ותעשיה — החל מתכנון ראשוני ועד אכלוס המבנה, כולל תכנון מערכות הגנה מפני אש, הערכת סיכונים, פיתוח מדיניות, הדרכה ובדיקות תאימות רגולטוריות.</p>
-          <p>ההכשרה ההנדסית, הניסיון הרב שצברנו, כוח האדם המקצועי והמגוון בחברה מאפשרים לנו גישה מהירה וכר נרחב במציאת פתרונות לבעיות הצצות בעת ביצוע פרויקט.</p>
-          <p>החברה רואה את טובתו ותועלתו הבלעדית של הלקוח ומאמינה בשיתוף פעולה מלא עם הלקוח בכל השלבים של הפרויקט.</p>
-          <div class="about-badges">
-            <div class="badge"><i class="fas fa-award"></i><span>מוביל בישראל</span></div>
-            <div class="badge"><i class="fas fa-handshake"></i><span>שיתוף פעולה מלא</span></div>
-            <div class="badge"><i class="fas fa-certificate"></i><span>הסמכות מקצועיות</span></div>
-          </div>
-        </div>
-        <div class="about-image">
-          <img src="images/real/team-outing.webp" alt="על בטוח הנדסת בטיחות" />
-          <div class="about-image-badge">
-            <span class="badge-num">2002</span>
-            <span class="badge-text">שנת הקמה</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- TEAM SECTION -->
   <section class="team-section">
     <div class="container">
       <div class="section-header">
         <p class="section-label">הצוות המוביל</p>
-        <h2 class="section-title">המנהיגים שלנו</h2>
-        <p class="section-desc">הנהגה מקצועית עם ניסיון רחב בתחום הנדסת הבטיחות</p>
+        <h2 class="section-title">הנהגה המקצועית</h2>
       </div>
       <div class="team-grid">
         <div class="team-card">
@@ -569,13 +551,43 @@
     </div>
   </section>
 
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">מי אנחנו</p>
+        <h2 class="section-title">אודות על בטוח</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="about-lead">בשנים האחרונות הפכה חברת <strong>על בטוח הנדסת בטיחות אש וגהות</strong> לאחת החברות המובילות בישראל בתחומה.</p>
+          <p>מאז הקמתה בשנת 2002 החברה מלווה פרויקטים גדולים ומורכבים בהנדסת בטיחות אש, בטיחות תעסוקתית ונגישות לאנשים עם מוגבלות בתחומי תחבורה, בריאות, תשתיות, מגורים, מסחר ותעשיה — החל מתכנון ראשוני ועד אכלוס המבנה, כולל תכנון מערכות הגנה מפני אש, הערכת סיכונים, פיתוח מדיניות, הדרכה ובדיקות תאימות רגולטוריות.</p>
+          <p>ההכשרה ההנדסית, הניסיון הרב שצברנו, כוח האדם המקצועי והמגוון בחברה מאפשרים לנו גישה מהירה וכר נרחב במציאת פתרונות לבעיות הצצות בעת ביצוע פרויקט.</p>
+          <p>החברה רואה את טובתו ותועלתו הבלעדית של הלקוח ומאמינה בשיתוף פעולה מלא עם הלקוח בכל השלבים של הפרויקט.</p>
+          <div class="about-badges">
+            <div class="badge"><i class="fas fa-award"></i><span>מוביל בישראל</span></div>
+            <div class="badge"><i class="fas fa-handshake"></i><span>שיתוף פעולה מלא</span></div>
+            <div class="badge"><i class="fas fa-certificate"></i><span>הסמכות מקצועיות</span></div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="images/real/team-outing.webp" alt="על בטוח הנדסת בטיחות" />
+          <div class="about-image-badge">
+            <span class="badge-num">2002</span>
+            <span class="badge-text">שנת הקמה</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT SECTION -->
   <section class="contact-section" id="contact">
     <div class="container">
       <div class="contact-inner">
         <div class="contact-info">
           <p class="section-label light">בואו נדבר</p>
-          <h2>מוכנים לעבוד יחד?<br />בנו פרויקט איתנו!</h2>
+          <h2>להצעת מחיר ותיאום שיחה מקצועית עם מומחה מצוות המשרד:</h2>
           <p>צוות המומחים שלנו זמין לסייע לכם בכל שאלה בתחום הנדסת הבטיחות. צרו קשר עוד היום לקבלת ייעוץ ראשוני ללא עלות.</p>
           <div class="contact-details">
             <div class="contact-detail-item">

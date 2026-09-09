@@ -48,7 +48,7 @@ test('Version 2 uses the owner-approved credibility facts and Yossi portrait', (
   assert.match(html, /הוקמה בשנת/);
   assert.match(html, /data-target="10000"/);
   assert.match(html, /data-target="500"/);
-  assert.match(html, /data-target="7"/);
+  assert.match(html, /data-target="10"/);
   assert.match(html, /images\/team\/yossi-shapir\.webp/);
   assert.match(html, /images\/team\/revital-messika\.webp/);
   assert.match(html, /מצוינות ללא פשרות מאז 2002/);
@@ -57,12 +57,14 @@ test('Version 2 uses the owner-approved credibility facts and Yossi portrait', (
   assert.match(html, /id="gallery"/);
   assert.match(html, /images\/gallery\/team1\.jpg/);
   assert.match(html, /images\/gallery\/team2\.jpg/);
-  assert.match(html, /images\/gallery\/tunnel-fire-test\.jpeg/);
+  assert.match(html, /images\/gallery\/team-group-owner\.jpg/);
   assert.equal(existsSync('images/team/yossi-shapir.jpeg'), true);
   assert.equal(existsSync('images/team/revital-messika.jpg'), true);
   assert.equal(existsSync('images/gallery/team1.jpg'), true);
   assert.equal(existsSync('images/gallery/team2.jpg'), true);
-  assert.equal(existsSync('images/gallery/tunnel-fire-test.jpeg'), true);
+  assert.equal(existsSync('images/gallery/team-group-owner.jpg'), true);
+  assert.equal(existsSync('images/hero/final-desktop-al-batuah.png'), true);
+  assert.equal(existsSync('images/hero/final-mobile-al-batuah.png'), true);
   assert.doesNotMatch(read('style.css'), /hero-bg\.webp/);
   assert.match(read('style.css'), /height: 230px/);
   assert.match(read('style.css'), /width: 184px/);
