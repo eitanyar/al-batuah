@@ -8,7 +8,8 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test test/*.test.mjs",
     "build:review": "node scripts/build-review-site.mjs",
-    "pages:dev": "wrangler pages dev . --compatibility-date=2026-08-01"
+    "pages:dev": "wrangler pages dev . --compatibility-date=2026-08-01",
+    "build": "vite build"
   },
   "devDependencies": {
     "vite": "^7.1.7",
