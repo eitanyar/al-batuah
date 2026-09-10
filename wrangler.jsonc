@@ -1,8 +1,10 @@
 {
   "name": "al-batuah",
   "compatibility_date": "2026-08-01",
+  "main": "./worker.mjs",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "not_found_handling": "single-page-application"
   }
 }
