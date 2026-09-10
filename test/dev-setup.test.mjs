@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
 
@@ -15,6 +16,23 @@ test('the site exposes local development, preview, and test commands', () => {
   assert.match(packageJson.scripts.dev, /vite/);
   assert.equal(existsSync('index.html'), true);
   assert.equal(existsSync('images/logo-final.png'), true);
+});
+
+test('the production build emits the JavaScript that powers site interactions', () => {
+  execFileSync('npm', ['run', 'build'], { stdio: 'pipe' });
+
+  const builtHtml = read('dist/index.html');
+  const scriptMatch = builtHtml.match(/<script[^>]+type="module"[^>]+src="([^"]+\.js)"/);
+
+  assert.ok(scriptMatch, 'the built page must reference an emitted module JavaScript asset');
+  assert.notEqual(scriptMatch[1], '/script.js', 'the built page must not leave script.js unresolved');
+
+  const assetPath = `dist/${scriptMatch[1].replace(/^\//, '')}`;
+  assert.equal(existsSync(assetPath), true, `built JavaScript asset must exist: ${assetPath}`);
+
+  const asset = read(assetPath);
+  assert.match(asset, /hamburger/, 'the built asset must include the mobile navigation behavior');
+  assert.match(asset, /stats-section/, 'the built asset must include the statistics counter behavior');
 });
 
 test('the contact form only claims success after the email service confirms delivery', () => {
