@@ -4,7 +4,7 @@ This repository is temporarily deployed through GitHub Pages so the client can r
 
 ## Important temporary safeguards
 
-- `index.html` contains `<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">`.
+- ~~`index.html` contains a temporary `noindex` robots meta tag.~~ Removed on 2026-11-26 after the production Cloudflare site was confirmed live.
 - Do not add a `robots.txt` file that blocks crawlers: Google must be able to fetch the page to see the `noindex` directive.
 - Do not submit the GitHub Pages URL to search engines or include it in a sitemap.
 - The contact form now posts to `/api/contact` (a Cloudflare Pages Function, see `functions/api/contact.js`). GitHub Pages serves static files only, so on the review site the form will show the error state — that is expected and does not indicate a bug.
@@ -15,7 +15,7 @@ Only after the user explicitly confirms that the production Cloudflare site is c
 
 1. Deploy the site to the client-owned Cloudflare Pages account (build output directory: repository root; `functions/` is picked up automatically as Pages Functions).
 2. Add `RESEND_API_KEY` as an encrypted environment variable in the Cloudflare Pages project settings, using the client's Resend account, and confirm the sending domain is verified in Resend. Then verify the live contact-form endpoint (`/api/contact`) actually delivers an email.
-3. Remove the temporary `noindex` meta tag from `index.html` on the production branch.
+3. ~~Remove the temporary `noindex` meta tag from `index.html` on the production branch.~~ Done 2026-11-26.
 4. Disable GitHub Pages in the repository settings.
 5. Remove the `gh-pages` review branch if it is no longer needed.
 6. Confirm the GitHub Pages URL no longer serves the review site.

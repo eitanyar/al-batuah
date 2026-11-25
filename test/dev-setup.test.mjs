@@ -46,11 +46,11 @@ test('the contact form only claims success after the email service confirms deli
   assert.equal(existsSync('functions/api/contact.js'), true);
 });
 
-test('the temporary review site asks search engines not to index it', () => {
+test('the production site allows search engines to index it', () => {
   const html = read('index.html');
 
-  assert.match(html, /<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"\s*\/>/);
-  assert.equal(existsSync('robots.txt'), false, 'do not block crawlers from reading the noindex tag');
+  assert.doesNotMatch(html, /<meta name="robots"[^>]*noindex/i);
+  assert.equal(existsSync('robots.txt'), false, 'do not add a robots.txt that blocks crawlers');
 });
 
 test('the review build is available to publish only the site files', () => {

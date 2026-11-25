@@ -96,7 +96,6 @@ test('owner update leaves required SEO metadata byte-identical', () => {
   const expected = [
     [/<title>.*?<\/title>/, 'db23ac02837913da12dd9a30dedc9e73afee9f1a55b2e6f2a0e69ed17b41e9d7'],
     [/<meta name="description".*?\/>/, 'fff02d5eaa284b8b6e5aeeaeac0c04183c71fd471cbc32a75c78cf6a18707e20'],
-    [/<meta name="robots".*?\/>/, '42bc8e5f9d156d16b82f73221f5ceab6a621ab467bca841b1675817b2b411685'],
   ];
 
   for (const [pattern, expectedHash] of expected) {
@@ -104,4 +103,5 @@ test('owner update leaves required SEO metadata byte-identical', () => {
     assert.ok(match, `missing metadata matching ${pattern}`);
     assert.equal(hash(match[0]), expectedHash);
   }
+  assert.doesNotMatch(html, /<meta name="robots"[^>]*noindex/i);
 });
